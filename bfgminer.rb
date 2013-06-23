@@ -9,6 +9,7 @@ class Bfgminer < Formula
     depends_on 'automake' => :build
     depends_on 'libtool' => :build
     depends_on 'pkg-config' => :build
+    depends_on 'uthash'
     depends_on 'curl'
     depends_on 'jansson'
     
