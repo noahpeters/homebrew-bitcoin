@@ -2,8 +2,8 @@ require 'formula'
 
 class Cgminer < Formula
     homepage 'https://github.com/ckolivas/cgminer'
-    url 'https://github.com/ckolivas/cgminer/archive/v3.2.2.tar.gz'
-    sha1 '23f5dd896d11ecb2dd98d9506f9258370cc8eef0'
+    url 'https://github.com/ckolivas/cgminer.git', :tag => 'v3.3.1'
+    version '3.3.1'
     
     depends_on 'autoconf' => :build
     depends_on 'automake' => :build
