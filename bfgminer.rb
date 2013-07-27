@@ -13,13 +13,23 @@ class Bfgminer < Formula
     depends_on 'uthash'
     depends_on 'curl'
     depends_on 'jansson'
-    
+
+    option 'with-cpumining', "Enable CPU mining"
+
     def install
         system "./autogen.sh"
-        system "./configure", "--disable-debug", "--disable-dependency-tracking",
-        "--prefix=#{prefix}",
-        "PKG_CONFIG_PATH=/usr/local/opt/curl/lib/pkgconfig:/usr/local/opt/jansson/lib/pkgconfig",
-        "--enable-scrypt"
+
+        args = [
+          "--disable-debug",
+          "--disable-dependency-tracking",
+          "--prefix=#{prefix}",
+          "PKG_CONFIG_PATH=/usr/local/opt/curl/lib/pkgconfig:/usr/local/opt/jansson/lib/pkgconfig",
+          "--enable-scrypt"
+        ]
+
+        args << "--enable-cpumining" if build.include? 'with-cpumining'
+
+        system "./configure", *args
         system "make", "install"
     end
 
