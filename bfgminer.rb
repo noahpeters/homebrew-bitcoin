@@ -13,6 +13,7 @@ class Bfgminer < Formula
     depends_on 'uthash'
     depends_on 'curl'
     depends_on 'jansson'
+    depends_on 'libusb'
 
     option 'with-cpumining', "Enable CPU mining"
 
@@ -23,7 +24,7 @@ class Bfgminer < Formula
           "--disable-debug",
           "--disable-dependency-tracking",
           "--prefix=#{prefix}",
-          "PKG_CONFIG_PATH=/usr/local/opt/curl/lib/pkgconfig:/usr/local/opt/jansson/lib/pkgconfig",
+          "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/opt/curl/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/jansson/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libusb/lib/pkgconfig",
           "--enable-scrypt"
         ]
 
