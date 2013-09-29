@@ -2,8 +2,9 @@ require 'formula'
 
 class Cgminer < Formula
     homepage 'https://github.com/ckolivas/cgminer'
-    url 'https://github.com/ckolivas/cgminer.git', :tag => 'v3.4.3'
-    version '3.4.3'
+    head 'https://github.com/ckolivas/cgminer.git', :branch => 'master'
+    url 'https://github.com/ckolivas/cgminer.git', :tag => 'v3.5.0'
+    version '3.5.0'
 
     depends_on 'autoconf' => :build
     depends_on 'automake' => :build
