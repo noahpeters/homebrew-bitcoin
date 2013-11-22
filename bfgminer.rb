@@ -10,10 +10,12 @@ class Bfgminer < Formula
     depends_on 'automake' => :build
     depends_on 'libtool' => :build
     depends_on 'pkg-config' => :build
-    depends_on 'uthash'
+    depends_on 'uthash' => :build
     depends_on 'curl'
     depends_on 'jansson'
     depends_on 'libusb'
+    depends_on 'libmicrohttpd'
+    depends_on 'libevent'
 
     option 'with-cpumining', "Enable CPU mining"
 
@@ -25,7 +27,8 @@ class Bfgminer < Formula
           "--disable-dependency-tracking",
           "--prefix=#{prefix}",
           "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/opt/curl/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/jansson/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libusb/lib/pkgconfig",
-          "--enable-scrypt"
+          "--enable-scrypt",
+          "--enable-opencl"
         ]
 
         args << "--enable-cpumining" if build.include? 'with-cpumining'
