@@ -1,7 +1,7 @@
 ##Installation
 
 ```
-brew tap caktux/bitcoin
+brew tap noahpeters/bitcoin
 brew install bfgminer
 ```
 
